@@ -43,10 +43,10 @@ $ ./create-zone.sh example.com
 {"message": "Zone Created", "uuid": "d019a4c1-0627-4b2d-9efb-ad182679eab7"}
 ```
 
-this step might be automated later, but before it is add this zone uuid to your `~/.khadi/config`:
+this step might be automated later, but before it is add this zone uuid prefixed with `zone_` to your `~/.khadi/config`:
 
 ```bash
-$ echo examplecom=d019a4c1-0627-4b2d-9efb-ad182679eab7 >> ~/.khadi/config
+$ echo zone_examplecom=d019a4c1-0627-4b2d-9efb-ad182679eab7 >> ~/.khadi/config
 ```
 
 notice to exclude the `.` in the domain name key: i.e. example.com => `examplecom`
@@ -54,14 +54,18 @@ notice to exclude the `.` in the domain name key: i.e. example.com => `exampleco
 ```bash
 $ cat ~/.khadi/config
 api_key=FxNoG7le4xPwn20b1h4x5Zsj
-examplecom=d019a4c1-0627-4b2d-9efb-ad182679eab7
+zone_examplecom=d019a4c1-0627-4b2d-9efb-ad182679eab7
 ```
 
-at this point this zone template can be referenced by the domain name (`./do-whatever-dns-command-that-uses-this-zone example.com`).
+at this point this zone template can be referenced by the domain name:
+
+```bash
+$ ./do-whatever-dns-command-that-uses-this-zone example.com
+```
 
 ## Link zone template to domain
 
-In order for DNS records of the zone template to be connected to a domain name, zone uuid and domain name should be accossiated/linked.
+In order for DNS records of the zone template to be connected to a domain name, zone uuid and domain name should be associated/linked.
 
 You can link them by:
 
@@ -107,13 +111,13 @@ Location: https://dns.api.gandi.net/api/v5/zones/d019a4c1-0627-4b2d-9efb-ad18267
 {"message": "DNS Zone Record Created"}
 ```
 
-notice it used the zone uuid that we created earlier.
+notice `khadi` used the zone uuid that we created earlier.
 
 At this point this update script can be `cron`'ed / scheduled to run on the server with a dynamic IP address periodically to make sure Gandi always has the latest IP address for this domain.
 
 ## Check domain DNS records
 
-Besides login in to Gandi's dashboard and checking records there, they can be checked with `./check-records.sh`:
+Besides logging in to the Gandi's dashboard and checking records there, they can be checked from command line with `./check-records.sh`:
 
 ```bash
 $ ./check-records.sh example.com
