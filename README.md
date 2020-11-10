@@ -32,6 +32,15 @@ api_key=FxNoG7le4xPwn20b1h4x5Zsj
 
 this will enable `khadi` to work with Gandi's API without asking for an API key. It is also a bit more secure than to have a trail of this key in the bash history.
 
+now you are ready to run scripts from this repo:
+
+```bash
+$ git clone https://github.com/tolitius/khadi.git
+$ cd khadi
+```
+
+and :point_down:
+
 ## Creating a DNS zone template
 
 In order to create a zone template have your domain name ready (let's say it is "example.com"):
