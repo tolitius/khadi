@@ -17,7 +17,7 @@ Anything that Gandi's LiveDNS API allows, but in short:
 * versioning
 * rollback
 
-`khadi` does not support all of it yet, but the support is added on demand: i.e. if you miss something, you are welcome to open an [issue](https://github.com/tolitius/khadi/issues) or sumbit a pull request.
+`khadi` does not support all of it yet, but the support is added on demand: i.e. if you miss something, you are welcome to open an [issue](https://github.com/tolitius/khadi/issues) or submit a pull request.
 
 ## Setup `khadi`
 
